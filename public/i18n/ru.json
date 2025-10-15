@@ -1,0 +1,21 @@
+{
+  "header": {
+    "back": "Назад",
+    "new_search": "Новый поиск",
+    "selected_vehicle": "Выбранное авто"
+  },
+  "category": {
+    "wipers": "Дворники",
+    "batteries": "Аккумуляторы",
+    "bulbs": "Лампочки"
+  },
+  "start": {
+    "select_by_car": "Подбор по автомобилю",
+    "touch_to_start": "Коснитесь экрана для старта"
+  },
+  "state": {
+    "loading": "Загрузка…",
+    "error": "Ошибка",
+    "empty": "Ничего не найдено"
+  }
+}

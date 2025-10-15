@@ -1,0 +1,14 @@
+.section {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    margin-bottom: var(--gap-lg);
+  }
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap-lg);
+}

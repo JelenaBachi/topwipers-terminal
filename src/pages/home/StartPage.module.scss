@@ -1,0 +1,157 @@
+.screen {
+  height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto auto 1fr;
+  justify-items: center;
+  gap: 4rem;
+  background: linear-gradient(
+    180deg,
+    var(--bg-grad-start) 0%,
+    var(--bg-grad-mid) 51.44%,
+    var(--bg-grad-start) 100%
+  );
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.logo {
+  align-self: end;
+  margin-bottom: 2rem;
+}
+
+.lang {
+  max-width: 48.8rem;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: stretch;
+  align-self: center;
+}
+
+.lang :global(button) {
+  font-size: var(--fs-display);
+  font-weight: 600;
+  letter-spacing: var(--ls);
+  border-radius: var(--border-radius-display);
+  padding: 1.5rem;
+
+  background: #fff;
+  color: var(--color-text-muted);
+  box-shadow: var(--box-shadow);
+
+  width: 100%;
+  max-height: var(--btn-h-xxl);
+}
+
+.icons {
+  display: flex;
+  gap: var(--gap-lg);
+  justify-content: center;
+  color: var(--color-accent);
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+}
+
+.hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 3rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: var(--fs-lg);
+}
+
+.iconTouch {
+  width: 20px;
+}
+
+.brandMark {
+  position: absolute;
+  right: max(1.5rem, env(safe-area-inset-right));
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+
+@media (min-width: 576px) {
+  .screen {
+    height: 100svh;
+    display: grid;
+    grid-template-rows: 1fr auto auto 1fr;
+    justify-items: center;
+    gap: 6rem;
+    background: linear-gradient(
+      180deg,
+      var(--bg-grad-start) 0%,
+      var(--bg-grad-mid) 51.44%,
+      var(--bg-grad-start) 100%
+    );
+    user-select: none;
+    touch-action: manipulation;
+  }
+
+  .logo {
+    align-self: end;
+    margin-bottom: 3rem;
+  }
+
+  .lang {
+    max-width: 48.8rem;
+    display: grid;
+    gap: 0.5rem;
+    justify-items: stretch;
+    align-self: center;
+  }
+
+  .lang :global(button) {
+    font-size: var(--fs-display);
+    font-weight: 600;
+    letter-spacing: var(--ls);
+    border-radius: var(--border-radius-display);
+    padding: 1.5rem;
+
+    background: #fff;
+    color: var(--color-text-muted);
+    box-shadow: var(--box-shadow);
+
+    width: 100%;
+    max-height: 7rem;
+  }
+
+  .icons {
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+    color: var(--color-accent);
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 3rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: var(--fs-h2);
+  }
+
+  .iconTouch {
+    width: 20px;
+  }
+
+  .brandMark {
+    position: absolute;
+    right: max(1.5rem, env(safe-area-inset-right));
+    bottom: max(1.5rem, env(safe-area-inset-bottom));
+    pointer-events: none;
+  }
+}
