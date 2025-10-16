@@ -4,7 +4,6 @@ import StartLogo from './components/StartLogo';
 import StartIcons from './components/StartIcons';
 import LanguagePicker from './components/LanguagePicker';
 import ScreenTouchIcon from './components/ScreenTouchIcon';
-import BrandMark from '@/shared/ui/BrandMark/BrandMark';
 import { useLanguages } from '@/entities/lang/api';
 import { DEFAULT_LANGS } from '@/entities/lang/fixtures';
 import s from './StartPage.module.scss';
