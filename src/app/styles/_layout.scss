@@ -1,0 +1,56 @@
+.container {
+  width: min(100% - 30px, 1200px);
+  margin-inline: auto;
+}
+
+.page {
+  padding-block: 4rem 6rem;
+  display: grid;
+  gap: var(--gap-lg);
+}
+
+@media (min-width: 576px) {
+  .page {
+    padding-block: 6rem 8.7rem;
+    display: grid;
+    gap: var(--gap-lg);
+  }
+}
+
+.stack {
+  display: grid;
+  gap: var(--gap-sm);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap-sm);
+}
+.grid--brands {
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+}
+
+.center-screen {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+.click-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+.no-scroll {
+  overflow: hidden;
+}
