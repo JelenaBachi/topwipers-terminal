@@ -16,7 +16,7 @@ export default function ProductCard({ product, onShelf }: Props) {
     name,
     imgUrl,
     price,
-    sku,
+    sku: _sku,
     features = [],
     availability,
     labels = [],

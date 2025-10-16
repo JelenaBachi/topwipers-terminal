@@ -1,12 +1,10 @@
 import { useCallback, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '@/shared/store/useAppStore';
-import type { Brand } from '@/entities/vehicle/types';
-import { BRAND_LIST } from '@/entities/vehicle/fixtures';
+import type { Make } from '@/entities/vehicle/types';
+import { MAKE_LIST } from '@/entities/vehicle/fixtures';
 import BrandTile from '@/entities/vehicle/VehicleTile';
 import s from './MakePage.module.scss';
-
-type Make = { code: string; name: string };
 
 export default function MakePage() {
   const navigate = useNavigate();
@@ -19,21 +17,21 @@ export default function MakePage() {
   }, [selected.model, selected.mod, setSelected]);
 
   const choose = useCallback(
-    (make: Brand) => {
-      setSelected({ brand: make });
+    (make: Make) => {
+      setSelected({ make: make });
       navigate('/vehicle/models');
     },
     [navigate, setSelected],
   );
 
-  // Группировка по первой букве + сортировка
+  // Group by first letter + sort
   const groups = useMemo(() => {
     const map = new Map<string, Make[]>();
-    const items = [...BRAND_LIST].sort((a, b) =>
+    const items: Make[] = [...MAKE_LIST].sort((a, b) =>
       a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
     );
     for (const m of items) {
-      const letter = (m.name[0] || '').toUpperCase();
+      const letter = m.name?.[0]?.toUpperCase() ?? '#';
       if (!map.has(letter)) map.set(letter, []);
       map.get(letter)!.push(m);
     }

@@ -18,17 +18,13 @@ export default function Button({
   children,
   ...rest
 }: Props) {
+  const sizeClass = s[size] ?? '';
+  const variantClass = s[variant] ?? '';
+  const blockClass = block ? s.block : '';
+
   return (
     <button
-      className={[
-        s.btn,
-        s[size],
-        s[variant],
-        block ? s.block : '',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      className={[s.btn, sizeClass, variantClass, blockClass, className].filter(Boolean).join(' ')}
       {...rest}
     >
       {children}

@@ -18,7 +18,7 @@ export const PRODUCT_TEMPLATES: ProductGroupMap = {
         ],
         price: 3570,
         labels: ['Бестселлер', 'Выбор покупателей'],
-        availability: { inStock: false, label: 'В наличии' },
+        availability: { inStock: false, label: 'Не в наличии' },
       },
       {
         id: 'wipers-2',

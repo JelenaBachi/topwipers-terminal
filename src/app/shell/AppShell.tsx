@@ -13,11 +13,11 @@ export default function AppShell() {
   const menu = useAppStore((s) => s.subMenuItems);
 
   useEffect(() => {
-    const hasSelection = !!(selected.brand || selected.model || selected.mod);
+    const hasSelection = !!(selected.make || selected.model || selected.mod);
     if (pathname === '/' && hasSelection) {
       resetSelected();
     }
-  }, [pathname, selected.brand, selected.model, selected.mod, resetSelected]);
+  }, [pathname, selected.make, selected.model, selected.mod, resetSelected]);
 
   const hideHeader = pathname === '/';
   const showSubHeader = pathname === '/products' && !!menu?.length;
@@ -26,13 +26,13 @@ export default function AppShell() {
     <div>
       <div className={!hideHeader ? s.headerWrap : `visually-hidden`}>
         {!hideHeader && <HeaderBar />}
-        {showSubHeader && (
+        {showSubHeader && menu?.length ? (
           <div className={s.headerSub}>
             <div className="container">
-              <AnchorPills items={menu!} />
+              <AnchorPills items={menu} />
             </div>
           </div>
-        )}
+        ) : null}
       </div>
 
       <Outlet />

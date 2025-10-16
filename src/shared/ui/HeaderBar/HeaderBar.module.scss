@@ -43,7 +43,6 @@
   list-style: none;
   font-size: var(--fs-lg);
   color: var(--color-text);
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -51,6 +50,7 @@
 .trailItem {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .trailText {

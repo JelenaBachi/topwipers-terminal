@@ -11,13 +11,12 @@ const ORDER = ['wipers', 'batteries', 'bulbs', 'mats'];
 
 export default function ProductListPage() {
   const navigate = useNavigate();
-  const brand = useAppStore((s) => s.selected.brand);
+  const make = useAppStore((s) => s.selected.make);
   const model = useAppStore((s) => s.selected.model);
   const mod = useAppStore((s) => s.selected.mod);
 
-  // Гварды
   useEffect(() => {
-    if (!brand) {
+    if (!make) {
       navigate('/vehicle', { replace: true });
       return;
     }
@@ -28,16 +27,16 @@ export default function ProductListPage() {
     if (!mod) {
       navigate('/vehicle/mods', { replace: true });
     }
-  }, [brand, model, mod, navigate]);
+  }, [make, model, mod, navigate]);
 
   const { data, isLoading, error } = useQuery({
-    enabled: !!brand && !!model && !!mod,
-    queryKey: ['products-grouped', brand?.code, model?.code, mod?.code],
-    queryFn: () => fetchProductsGrouped({ brand: brand!, model: model!, mod: mod! }),
+    enabled: !!make && !!model && !!mod,
+    queryKey: ['products-grouped', make?.code, model?.code, mod?.code],
+    queryFn: () => fetchProductsGrouped({ make: make!, model: model!, mod: mod! }),
     staleTime: 60_000,
   });
 
-  if (!brand || !model || !mod) return null;
+  if (!make || !model || !mod) return null;
 
   const groups = useMemo(() => groupsFromMap(data, ORDER), [data]);
   const visibleGroups = useMemo(() => withoutEmpty(groups), [groups]);
@@ -67,7 +66,7 @@ export default function ProductListPage() {
             const anchorId = toAnchorId(g.id);
             return (
               <section key={anchorId} id={anchorId} className={s.section} aria-label={g.label}>
-                <h2 className="sub-title">{g.label}</h2>
+                <h2 className="title">{g.label}</h2>
                 <div className={s.grid}>
                   {g.items.map((p) => (
                     <ProductCard key={p.id} product={p} />

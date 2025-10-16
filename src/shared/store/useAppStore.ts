@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import type { Brand, Model, Mod } from '@/entities/vehicle/types';
+import type { Make, Model, Mod } from '@/entities/vehicle/types';
 import type { AnchorItem } from '@/shared/ui/AnchorPills/AnchorPills';
 
-type Selected = { brand?: Brand; model?: Model; mod?: Mod };
+type Selected = { make?: Make; model?: Model; mod?: Mod };
 
 type State = {
   lang: string;
@@ -21,8 +21,6 @@ type State = {
 
   /** Полный сброс выбора */
   resetSelected: () => void;
-
-  
 };
 
 export const useAppStore = create<State>((set) => ({
@@ -42,16 +40,13 @@ export const useAppStore = create<State>((set) => ({
       const prev = state.selected;
       const next: Selected = { ...prev, ...patch };
 
-      // признак: поле присутствует в patch и значение реально изменилось по code
-      const brandTouched =
-        Object.prototype.hasOwnProperty.call(patch, 'brand') &&
-        (patch.brand?.code ?? null) !== (prev.brand?.code ?? null);
+      const makeTouched =
+        'make' in patch && (patch.make?.code ?? null) !== (prev.make?.code ?? null);
 
       const modelTouched =
-        Object.prototype.hasOwnProperty.call(patch, 'model') &&
-        (patch.model?.code ?? null) !== (prev.model?.code ?? null);
+        'model' in patch && (patch.model?.code ?? null) !== (prev.model?.code ?? null);
 
-      if (brandTouched) {
+      if (makeTouched) {
         next.model = undefined;
         next.mod = undefined;
       } else if (modelTouched) {

@@ -1,6 +1,6 @@
-import type { Brand } from './types';
+import type { Make } from './types';
 
-export const BRAND_LIST: Brand[] = [
+export const MAKE_LIST: Make[] = [
   { code: 'acura', name: 'Acura' },
   { code: 'alfa-romeo', name: 'Alfa Romeo' },
   { code: 'aston-martin', name: 'Aston Martin' },

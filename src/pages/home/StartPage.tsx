@@ -5,18 +5,17 @@ import StartIcons from './components/StartIcons';
 import LanguagePicker from './components/LanguagePicker';
 import ScreenTouchIcon from './components/ScreenTouchIcon';
 import BrandMark from '@/shared/ui/BrandMark/BrandMark';
-import type { Lang } from '@/entities/lang/types';
+import { useLanguages } from '@/entities/lang/api';
+import { DEFAULT_LANGS } from '@/entities/lang/fixtures';
 import s from './StartPage.module.scss';
-
-const MOCK_LANGS: Lang[] = [
-  { code: 'ru', label: 'Подбор по автомобилю' },
-  { code: 'en', label: 'Select by Car' },
-  { code: 'de', label: 'Fahrzeug auswählen' },
-]; 
 
 export default function StartPage() {
   const navigate = useNavigate();
   const setLang = useAppStore((s) => s.setLang);
+  const { data, isLoading, isError } = useLanguages();
+
+  // Use API languages if available, otherwise fallback to defaults
+  const languages = !isLoading && !isError && data?.length ? data : DEFAULT_LANGS;
 
   const handlePick = (code: string) => {
     setLang(code);
@@ -30,7 +29,7 @@ export default function StartPage() {
       </div>
 
       <div className={s.lang}>
-        <LanguagePicker languages={MOCK_LANGS} onPick={handlePick} />
+        <LanguagePicker languages={languages} onPick={handlePick} />
       </div>
 
       <div className={s.icons}>
@@ -43,7 +42,6 @@ export default function StartPage() {
           <br />
           для старта
         </p>
-
         <ScreenTouchIcon />
       </div>
 

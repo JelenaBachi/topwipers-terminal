@@ -54,7 +54,7 @@ export default function AnchorPills({ items, offsetTop, rightSlot, rootMargin }:
 
     const io = new IntersectionObserver(
       (entries) => {
-        // Берём наиболее видимую секцию
+        // The most visible section
         const best = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];

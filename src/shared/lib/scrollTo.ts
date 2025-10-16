@@ -8,5 +8,9 @@ export function scrollToId(id: string, offsetTop = 0) {
 
   window.scrollTo({ top: target, behavior: 'smooth' });
 
-  history.replaceState(null, '', `#${id}`);
+  try {
+    history.replaceState(null, '', `#${id}`);
+  } catch {
+    // Silently ignore if history API isn't available or throws
+  }
 }

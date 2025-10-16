@@ -2,34 +2,34 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '@/shared/store/useAppStore';
 import { fetchMods } from '@/entities/vehicle/mockApi';
-import type { Brand, Model, Mod } from '@/entities/vehicle/types';
+import type { Make, Model, Mod } from '@/entities/vehicle/types';
 import VehicleTile from '@/entities/vehicle/VehicleTile';
 import s from './ModPage.module.scss';
 
 export default function ModPage() {
   const navigate = useNavigate();
-  const brand = useAppStore((s) => s.selected.brand) as Brand | undefined;
+  const make = useAppStore((s) => s.selected.make) as Make | undefined;
   const model = useAppStore((s) => s.selected.model) as Model | undefined;
   const setSelected = useAppStore((s) => s.setSelected);
   const [mods, setMods] = useState<Mod[] | null>(null);
 
   useEffect(() => {
-    if (!brand) {
+    if (!make) {
       navigate('/vehicle', { replace: true });
       return;
     }
     if (!model) {
       navigate('/vehicle/models', { replace: true });
     }
-  }, [brand, model, navigate]);
+  }, [make, model, navigate]);
 
   useEffect(() => {
-    if (!brand || !model) return;
+    if (!make || !model) return;
     setMods(null);
-    fetchMods(brand, model).then(setMods);
-  }, [brand, model]);
+    fetchMods(make, model).then(setMods);
+  }, [make, model]);
 
-  if (!brand || !model) return null;
+  if (!make || !model) return null;
 
   return (
     <div className="page container">

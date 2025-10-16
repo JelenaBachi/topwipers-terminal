@@ -29,12 +29,12 @@ export function groupsFromMap(
   });
 }
 
-/* Утилита для того чтобы не показывать секции без товаров в листинге */
+/* Utility to hide sections without products in the listing */
 export function withoutEmpty(groups: ProductGroup[]): ProductGroup[] {
   return groups.filter((g) => g.items.length > 0);
 }
 
-/* Преобразует текст названия группы в id для якоря */
+/* Converts the group name text into an ID for an anchor */
 export function toAnchorId(label: string): string {
   return label
     .toLowerCase()

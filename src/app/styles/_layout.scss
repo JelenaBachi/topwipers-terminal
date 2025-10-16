@@ -17,13 +17,11 @@
   }
 }
 
-/* Вертикальная колонка со стабильным расстоянием */
 .stack {
   display: grid;
   gap: var(--gap-sm);
 }
 
-/* Гриды под плитки/карточки */
 .grid {
   display: grid;
   gap: var(--gap-sm);

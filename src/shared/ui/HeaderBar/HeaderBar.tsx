@@ -7,17 +7,17 @@ import s from './HeaderBar.module.scss';
 
 type Props = { children?: React.ReactNode };
 
-export default function HeaderBar({ children }: Props) {
+export default function HeaderBar({ children: _children }: Props) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { setSelected } = useAppStore();
 
   if (pathname === '/') return null;
 
-  const { brand, model, mod } = useAppStore((s) => s.selected);
+  const { make, model, mod } = useAppStore((s) => s.selected);
   const resetSelected = useAppStore((st) => st.resetSelected);
 
-  const crumbs = [brand?.name, model?.name, mod?.name].filter(Boolean);
+  const crumbs = [make?.name, model?.name, mod?.name].filter(Boolean);
   const canGoBack = pathname !== '/vehicle';
 
   const onBack = () => {

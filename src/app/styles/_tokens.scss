@@ -1,4 +1,6 @@
 :root {
+  --header-offset: 250px;
+
   --color-bg: #f8f8f8;
   --bg-grad-start: #ffffff;
   --bg-grad-mid: #c9c9c9;
@@ -11,8 +13,8 @@
   --color-primary: #1469b6;
   --color-accent: #e06426;
   --color-ok: #daf2db;
+  --rule-color: rgba(76, 76, 76, 0.149);
 
-  --rule-color: #4c4c4c26;
   --border-radius-display: 12px;
   --border-radius: 10px;
   --box-shadow: 0px 4px 15px 0px rgba(26, 26, 26, 0.05);
@@ -40,11 +42,8 @@
   --btn-px-xxl: 32px;
 }
 
-:root {
-  --header-offset: 200px;
-}
 @media (min-width: 576px) {
   :root {
-    --header-offset: 150px;
+    --header-offset: 170px;
   }
 }
