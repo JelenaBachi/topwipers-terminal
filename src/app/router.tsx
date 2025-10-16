@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import AppShell from './shell/AppShell';
 import StartPage from '@/pages/home/StartPage';
 import MakePage from '@/pages/vehicle/MakePage';
@@ -15,6 +15,7 @@ export const router = createBrowserRouter([
       { path: '/vehicle/models', element: <ModelPage /> },
       { path: '/vehicle/mods', element: <ModPage /> },
       { path: '/products', element: <ProductListPage /> },
+      { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
 ]);
