@@ -44,8 +44,6 @@ export default function StartPage() {
         </p>
         <ScreenTouchIcon />
       </div>
-
-      <BrandMark className={s.brandMark} />
     </div>
   );
 }
