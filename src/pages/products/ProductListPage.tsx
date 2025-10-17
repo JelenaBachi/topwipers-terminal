@@ -1,10 +1,10 @@
 import { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import { useAppStore } from '@/shared/store/useAppStore';
-import { fetchProductsGrouped } from '@/entities/product/mockApi';
+import { useProductList } from '@/entities/product/mockApi';
 import { groupsFromMap, toAnchorId, withoutEmpty } from '@/entities/product/utils';
 import ProductCard from '@/entities/product/ProductCard';
+import { paths } from '@/app/paths';
 import s from './ProductListPage.module.scss';
 
 const ORDER = ['wipers', 'batteries', 'bulbs', 'mats'];
@@ -17,26 +17,22 @@ export default function ProductListPage() {
 
   useEffect(() => {
     if (!make) {
-      navigate('/vehicle', { replace: true });
+      navigate(paths.vehicle(), { replace: true });
       return;
     }
     if (!model) {
-      navigate('/vehicle/models', { replace: true });
+      navigate(paths.vehicleMake(), { replace: true });
       return;
     }
     if (!mod) {
-      navigate('/vehicle/mods', { replace: true });
+      navigate(paths.vehicleModel(), { replace: true });
+      return;
     }
   }, [make, model, mod, navigate]);
 
-  const { data, isLoading, error } = useQuery({
-    enabled: !!make && !!model && !!mod,
-    queryKey: ['products-grouped', make?.code, model?.code, mod?.code],
-    queryFn: () => fetchProductsGrouped({ make: make!, model: model!, mod: mod! }),
-    staleTime: 60_000,
-  });
-
   if (!make || !model || !mod) return null;
+
+  const { data, isLoading, isError } = useProductList();
 
   const groups = useMemo(() => groupsFromMap(data, ORDER), [data]);
   const visibleGroups = useMemo(() => withoutEmpty(groups), [groups]);
@@ -53,12 +49,14 @@ export default function ProductListPage() {
 
   return (
     <div className="page container">
-      {isLoading && <div className="grid">Loading...</div>}
-      {!isLoading && error && (
+      {isLoading && <div className="grid">Загрузка…</div>}
+
+      {!isLoading && isError && (
         <div className={s.error}>Не удалось загрузить товары. Попробуйте обновить страницу.</div>
       )}
+
       {!isLoading &&
-        !error &&
+        !isError &&
         (visibleGroups.length === 0 ? (
           <div className={s.empty}>Подходящих товаров не найдено</div>
         ) : (

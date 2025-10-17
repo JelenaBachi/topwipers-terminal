@@ -4,6 +4,7 @@ import { useAppStore } from '@/shared/store/useAppStore';
 import type { Make } from '@/entities/vehicle/types';
 import { MAKE_LIST } from '@/entities/vehicle/fixtures';
 import BrandTile from '@/entities/vehicle/VehicleTile';
+import { paths } from '@/app/paths';
 import s from './MakePage.module.scss';
 
 export default function MakePage() {
@@ -19,7 +20,7 @@ export default function MakePage() {
   const choose = useCallback(
     (make: Make) => {
       setSelected({ make: make });
-      navigate('/vehicle/models');
+      navigate(paths.vehicleMake());
     },
     [navigate, setSelected],
   );

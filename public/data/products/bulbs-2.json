@@ -1,0 +1,28 @@
+{
+  "title": "OSRAM H7 (55W) COOL BLUE INTENSE 4200K",
+  "properties": [
+    { "name": "Бренд", "value": "OSRAM" },
+    { "name": "SKU", "value": "64210CBI-HCB" },
+    { "name": "Тип цоколя", "value": "H7" },
+    { "name": "Мощность", "value": "55W" }
+  ],
+  "media": {
+    "gallery": [
+      "/images/test-wiper-1.png",
+      "/images/test-bulb-1.png",
+      "/images/test-acc-1.png",
+      "/images/test-map-1.png"
+    ],
+    "video": { "url": "https://www.youtube.com/@TopWipers", "qr": "/images/test-qr.svg" }
+  },
+  "price": 600,
+  "storeInfo": {
+    "title": "Как найти OSRAM H7 COOL BLUE INTENSE 4200K на полке",
+    "gallery": ["/images/test-article.png"],
+    "shelfData": {
+      "title": "Расположение OSRAM H7 COOL BLUE INTENSE 4200K на полке",
+      "img": "/images/test-shelf.png",
+      "planogram": { "aisle": "", "bay": "", "shelf": "", "position": "" }
+    }
+  }
+}

@@ -26,8 +26,7 @@
 .media {
   border-radius: 1.5rem;
   overflow: hidden;
-  background: #f2f2f2;
-  aspect-ratio: 4/3;
+  background: var(--color-surface);
 
   img {
     width: 100%;
@@ -97,8 +96,8 @@
 
 .labels {
   position: absolute;
-  top: var(--gap-m);
-  left: var(--gap-m);
+  top: 1.5rem;
+  left: 1.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -109,9 +108,7 @@
 .label {
   padding: 0.6rem 0.8rem;
   background: var(--color-surface);
-  border: 1px solid var(--color-accent);
   border-radius: 0.5rem;
-  color: var(--color-accent);
   font-size: var(--fs-sm);
 }
 

@@ -1,0 +1,131 @@
+// Main image
+.embla {
+  width: 100%;
+  margin: 0;
+  --slide-size: 100%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+}
+
+.mainImage {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--color-surface);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// THUMBS
+.emblaThumbsWrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-width: 0;
+  margin-top: var(--gap-sm);
+}
+
+.emblaThumbs {
+  min-width: 0;
+}
+
+.embla-thumbs__viewport {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.embla-thumbs__container {
+  display: flex;
+  gap: var(--thumbGap);
+}
+
+.embla-thumbs__slide {
+  flex: 0 0 auto;
+  width: var(--thumbW);
+  height: var(--thumbH);
+  min-width: 0;
+}
+
+.embla-thumbs__slide__button {
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 0.7rem;
+  background: var(--color-surface);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.embla-thumbs__img {
+  width: 100%;
+  height: 100%;
+}
+
+.embla-thumbs__slide--selected .embla-thumbs__slide__button {
+  // border: var(--thumbBorder);
+  opacity: 1;
+}
+
+// Prev / Next Buttons
+.thumbNav {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  background: #f1f1f1;
+  border-radius: var(--border-radius);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  z-index: 2;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  &:not(:disabled):hover {
+    background: #f1f1f1;
+  }
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--color-text-muted);
+  }
+}
+
+.thumbPrev {
+  transform: translate(-25%, -50%);
+  left: 0;
+}
+.thumbNext {
+  transform: translate(25%, -50%) rotate(180deg);
+  right: 0;
+}
+
+// @media (max-width: 576px) {
+//   .emblaThumbs {
+//     --thumbW: 72px;
+//     --thumbGap: 6px;
+//   }
+// }

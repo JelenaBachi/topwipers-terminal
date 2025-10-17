@@ -1,0 +1,34 @@
+{
+  "title": "003 MTF H7 12V (55W) PX26d",
+  "labels": [
+    {
+      "label": "Лучшая цена",
+      "color": "#e06426",
+      "background": "#e0642680"
+    }
+  ],
+  "properties": [
+    { "name": "Бренд", "value": "MTF" },
+    { "name": "SKU", "value": "003 MTF" },
+    { "name": "Тип цоколя", "value": "H7 (PX26d)" }
+  ],
+  "media": {
+    "gallery": [
+      "/images/test-wiper-1.png",
+      "/images/test-bulb-1.png",
+      "/images/test-acc-1.png",
+      "/images/test-map-1.png"
+    ],
+    "video": { "url": "https://www.youtube.com/@TopWipers", "qr": "/images/test-qr.svg" }
+  },
+  "price": 480,
+  "storeInfo": {
+    "title": "Как найти 003 MTF H7 12V (55W) PX26d на полке",
+    "gallery": ["/images/test-article.png"],
+    "shelfData": {
+      "title": "Расположение 003 MTF H7 12V (55W) PX26d на полке",
+      "img": "/images/test-shelf.png",
+      "planogram": { "aisle": "", "bay": "", "shelf": "", "position": "" }
+    }
+  }
+}

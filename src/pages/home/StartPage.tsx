@@ -6,6 +6,7 @@ import LanguagePicker from './components/LanguagePicker';
 import ScreenTouchIcon from './components/ScreenTouchIcon';
 import { useLanguages } from '@/entities/lang/api';
 import { DEFAULT_LANGS } from '@/entities/lang/fixtures';
+import { paths } from '@/app/paths';
 import s from './StartPage.module.scss';
 
 export default function StartPage() {
@@ -18,7 +19,7 @@ export default function StartPage() {
 
   const handlePick = (code: string) => {
     setLang(code);
-    navigate('/vehicle');
+    navigate(paths.vehicle());
   };
 
   return (

@@ -1,0 +1,57 @@
+.gallery {
+  display: grid;
+  gap: var(--gap-sm);
+  grid-template-columns: 1fr;
+}
+
+.card {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-surface);
+  border-radius: 1.5rem;
+}
+
+.card img {
+  width: 100%;
+}
+
+.shelfFigure {
+  margin: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.shelfFigure img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.planogram {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2f7;
+  font-size: 14px;
+}
+
+.pillK {
+  opacity: 0.7;
+}
+.pillV {
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 6px;
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Denso Hybrid DUR065L + DUR065R",
+  "properties": [
+    { "name": "Бренд", "value": "DENSO" },
+    { "name": "SKU", "value": "DUR065L + DUR065R" },
+    { "name": "Сезонность", "value": "Всесезонная" }
+  ],
+  "media": {
+    "gallery": [
+      "/images/test-wiper-1.png",
+      "/images/test-bulb-1.png",
+      "/images/test-acc-1.png",
+      "/images/test-map-1.png"
+    ],
+    "video": { "url": "https://www.youtube.com/@TopWipers", "qr": "/images/test-qr.svg" }
+  },
+  "price": 5350,
+  "storeInfo": {
+    "title": "Как найти Denso Hybrid DUR065L + DUR065R на полке",
+    "gallery": ["/images/test-article.png", "/images/test-article.png"],
+    "shelfData": {
+      "title": "Расположение Denso Hybrid DUR065L + DUR065R на полке",
+      "img": "/images/test-shelf.png",
+      "planogram": { "aisle": "", "bay": "", "shelf": "", "position": "" }
+    }
+  }
+}
