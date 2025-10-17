@@ -1,0 +1,27 @@
+{
+  "title": "BARS 6CT-60 АПЗ 60Ah 520A",
+  "properties": [
+    { "name": "Бренд", "value": "BARS" },
+    { "name": "SKU", "value": "6CT-60 АПЗ" },
+    { "name": "Пусковой ток", "value": "520A" }
+  ],
+  "media": {
+    "gallery": [
+      "/images/test-wiper-1.png",
+      "/images/test-bulb-1.png",
+      "/images/test-acc-1.png",
+      "/images/test-map-1.png"
+    ],
+    "video": { "url": "https://www.youtube.com/@TopWipers", "qr": "/images/test-qr.svg" }
+  },
+  "price": 3570,
+  "storeInfo": {
+    "title": "Как найти BARS 6CT-60 АПЗ 60Ah 520A на полке",
+    "gallery": ["/images/test-article.png"],
+    "shelfData": {
+      "title": "Расположение BARS 6CT-60 АПЗ 60Ah 520A на полке",
+      "img": "/images/test-shelf.png",
+      "planogram": { "aisle": "", "bay": "", "shelf": "", "position": "" }
+    }
+  }
+}

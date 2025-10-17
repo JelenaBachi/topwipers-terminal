@@ -43,6 +43,29 @@ export default function AnchorPills({ items, offsetTop, rightSlot, rootMargin }:
     scrollToId(id, offset);
   };
 
+  // refs для автопрокрутки ленты
+  const listRef = React.useRef<HTMLUListElement | null>(null);
+  const itemRefs = React.useRef<Map<string, HTMLLIElement>>(new Map());
+
+  const setItemRef = React.useCallback(
+    (id: string) =>
+      (el: HTMLLIElement | null): void => {
+        if (el) itemRefs.current.set(id, el);
+        else itemRefs.current.delete(id);
+      },
+    [],
+  );
+
+  // авто-скролл ленты к активной «пилюле»
+  React.useEffect(() => {
+    if (!activeId) return;
+    const el = itemRefs.current.get(activeId);
+    if (el && listRef.current) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [activeId]);
+
+  // отслеживание активной секции
   React.useEffect(() => {
     if (!items?.length || !('IntersectionObserver' in window)) return;
 
@@ -54,7 +77,6 @@ export default function AnchorPills({ items, offsetTop, rightSlot, rootMargin }:
 
     const io = new IntersectionObserver(
       (entries) => {
-        // The most visible section
         const best = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -72,11 +94,15 @@ export default function AnchorPills({ items, offsetTop, rightSlot, rootMargin }:
   return (
     <div className={s.row}>
       <nav aria-label="Разделы на странице" className={s.nav}>
-        <ul className={s.list}>
+        <ul className={s.list} ref={listRef}>
           {items.map((it) => {
             const isActive = activeId === it.id;
             return (
-              <li key={it.id} className={`${s.item} ${isActive ? s.isActive : ''}`}>
+              <li
+                key={it.id}
+                ref={setItemRef(it.id)}
+                className={`${s.item} ${isActive ? s.isActive : ''}`}
+              >
                 <a
                   href={`#${it.id}`}
                   onClick={(e) => onClick(e, it.id)}

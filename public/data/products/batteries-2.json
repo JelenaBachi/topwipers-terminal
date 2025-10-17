@@ -1,0 +1,34 @@
+{
+  "title": "СТАНДАРТ 60R сб. пол. 60Ah (6СТ-60VL)",
+  "labels": [
+    {
+      "label": "Выбор покупателей",
+      "color": "#e02626",
+      "background": "#e0262680"
+    }
+  ],
+  "properties": [
+    { "name": "Бренд", "value": "СТАНДАРТ" },
+    { "name": "SKU", "value": "6СТ-60VL" },
+    { "name": "Пусковой ток", "value": "500A" }
+  ],
+  "media": {
+    "gallery": [
+      "/images/test-wiper-1.png",
+      "/images/test-bulb-1.png",
+      "/images/test-acc-1.png",
+      "/images/test-map-1.png"
+    ],
+    "video": { "url": "https://www.youtube.com/@TopWipers", "qr": "/images/test-qr.svg" }
+  },
+  "price": 5350,
+  "storeInfo": {
+    "title": "Как найти СТАНДАРТ 60R сб. пол. 60Ah (6СТ-60VL) на полке",
+    "gallery": ["/images/test-article.png"],
+    "shelfData": {
+      "title": "Расположение СТАНДАРТ 60R сб. пол. 60Ah (6СТ-60VL) на полке",
+      "img": "/images/test-shelf.png",
+      "planogram": { "aisle": "", "bay": "", "shelf": "", "position": "" }
+    }
+  }
+}

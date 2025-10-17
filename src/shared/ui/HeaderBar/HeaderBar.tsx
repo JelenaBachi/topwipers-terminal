@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppStore } from '@/shared/store/useAppStore';
 import Button from '@/shared/ui/Button/Button';
 import ArrowLeft from '@/assets/icons/back.svg?react';
+import { paths } from '@/app/paths';
 import s from './HeaderBar.module.scss';
 
 type Props = { children?: React.ReactNode };
@@ -10,32 +11,30 @@ type Props = { children?: React.ReactNode };
 export default function HeaderBar({ children: _children }: Props) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { setSelected } = useAppStore();
-
-  if (pathname === '/') return null;
-
   const { make, model, mod } = useAppStore((s) => s.selected);
-  const resetSelected = useAppStore((st) => st.resetSelected);
+  const { setSelected, resetSelected } = useAppStore();
+
+  if (pathname === paths.home()) return null;
 
   const crumbs = [make?.name, model?.name, mod?.name].filter(Boolean);
-  const canGoBack = pathname !== '/vehicle';
+  const canGoBack = pathname !== paths.vehicle();
 
   const onBack = () => {
-    if (pathname.startsWith('/vehicle/mods')) {
+    if (pathname.startsWith(paths.vehicleModel())) {
       setSelected({ mod: undefined });
-      navigate('/vehicle/models', { replace: true });
+      navigate(paths.vehicleMake(), { replace: true });
       return;
     }
 
-    if (pathname.startsWith('/vehicle/models')) {
+    if (pathname.startsWith(paths.vehicleMake())) {
       setSelected({ model: undefined });
-      navigate('/vehicle', { replace: true });
+      navigate(paths.vehicle(), { replace: true });
       return;
     }
 
-    if (pathname === '/vehicle') {
+    if (pathname === paths.vehicle()) {
       resetSelected();
-      navigate('/', { replace: true });
+      navigate(paths.home(), { replace: true });
       return;
     }
 
@@ -44,7 +43,7 @@ export default function HeaderBar({ children: _children }: Props) {
 
   const onNew = () => {
     resetSelected();
-    navigate('/');
+    navigate(paths.home());
   };
 
   return (
@@ -73,10 +72,8 @@ export default function HeaderBar({ children: _children }: Props) {
           </div>
         </div>
 
-        <div className={s.selectionTrail} aria-label="Текущий выбор" role="group">
-          {crumbs.length === 0 ? (
-            ''
-          ) : (
+        {crumbs.length > 0 && (
+          <div className={s.selectionTrail} aria-label="Текущий выбор" role="group">
             <ol className={s.trailList}>
               {crumbs.map((c, i) => {
                 const isLast = i === crumbs.length - 1;
@@ -87,8 +84,8 @@ export default function HeaderBar({ children: _children }: Props) {
                 );
               })}
             </ol>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </header>
   );

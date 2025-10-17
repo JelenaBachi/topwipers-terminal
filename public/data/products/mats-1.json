@@ -1,0 +1,27 @@
+{
+  "title": "Передний левый, 1 шт. (полиуретан)",
+  "properties": [
+    { "name": "Бренд", "value": "mat-brand-1" },
+    { "name": "SKU", "value": "mats-sku-1" },
+    { "name": "Материал", "value": "Полиуретан" }
+  ],
+  "media": {
+    "gallery": [
+      "/images/test-wiper-1.png",
+      "/images/test-bulb-1.png",
+      "/images/test-acc-1.png",
+      "/images/test-map-1.png"
+    ],
+    "video": { "url": "https://www.youtube.com/@TopWipers", "qr": "/images/test-qr.svg" }
+  },
+  "price": 590,
+  "storeInfo": {
+    "title": "Как найти коврик (передний левый) на полке",
+    "gallery": ["/images/test-article.png"],
+    "shelfData": {
+      "title": "Расположение коврика (передний левый) на полке",
+      "img": "/images/test-shelf.png",
+      "planogram": { "aisle": "", "bay": "", "shelf": "", "position": "" }
+    }
+  }
+}
