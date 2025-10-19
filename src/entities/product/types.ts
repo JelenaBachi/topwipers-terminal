@@ -48,7 +48,7 @@ export type Product = {
   sku: string;
   brand?: string;
   imgUrl?: string;
-  price?: number;
+  price: number;
   features?: string[];
   labels?: LabelTag[];
   flags?: FlagTag[];

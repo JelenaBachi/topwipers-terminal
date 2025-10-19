@@ -25,15 +25,15 @@ export default function ProductPage() {
     <div className="page container">
       <h1 className="title">{data.title}</h1>
 
-      {!!data.labels?.length && (
+      {data.labels?.length && (
         <ul className={s.labels} aria-label="Метки">
-          {data.labels.map((t, i) => (
+          {data.labels.map((t) => (
             <li
-              key={`${t.label}-${i}`}
+              key={t.label}
               className={s.label}
               style={{
-                border: `1px solid ${t.background || undefined}`,
-                color: t.color || undefined,
+                border: t.background ? `1px solid ${t.background}` : undefined,
+                color: t.color,
               }}
             >
               {t.label}
@@ -51,18 +51,19 @@ export default function ProductPage() {
           {(data.media.video?.url || data.media.video?.qr) && (
             <div className={s.videoBlock}>
               <h3 className={s.subhead}>Видеоинструкция</h3>
+
               <div className={s.videoRow}>
                 {data.media.video?.url && (
                   <a
                     className={s.videoBtn}
-                    href={data.media.video?.url || '#'}
+                    href={data.media.video.url}
                     target="_blank"
                     rel="noreferrer"
-                    aria-disabled={!data.media.video?.url}
                   >
                     <VideoBtn />
                   </a>
                 )}
+
                 {data.media.video?.qr && (
                   <img className={s.qr} src={data.media.video.qr} alt="QR-код к видеоинструкции" />
                 )}

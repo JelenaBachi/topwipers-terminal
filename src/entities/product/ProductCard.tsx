@@ -72,8 +72,8 @@ export default function ProductCard({ product, onShelf }: Props) {
                     key={`${t.label}-${i}`}
                     className={s.label}
                     style={{
-                      border: `1px solid ${t.background || undefined}`,
-                      color: t.color || undefined,
+                      border: t.background && `1px solid ${t.background}`,
+                      color: t.color && t.color,
                     }}
                   >
                     {t.label}
