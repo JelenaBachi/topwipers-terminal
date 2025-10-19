@@ -1,0 +1,47 @@
+{
+  "title": "Bosch Aerotwin AR701S",
+  "flags": [
+    {
+      "id": "set_in_one_pack",
+      "label": "Комплект в одной упаковке"
+    }
+  ],
+  "labels": [
+    {
+      "label": "Бестселлер",
+      "color": "#5ea761",
+      "background": "#5ea76180"
+    },
+    {
+      "label": "Выбор покупателей",
+      "color": "#e02626",
+      "background": "#e0262680"
+    }
+  ],
+  "properties": [
+    { "name": "Товар", "value": "Комплект щёток стеклоочистителей" },
+    { "name": "Бренд", "value": "BOSCH" },
+    { "name": "SKU", "value": "AR701S" },
+    { "name": "Сезонность", "value": "Всесезонная" }
+  ],
+  "media": {
+    "gallery": [
+      "/images/test-wiper-1.png",
+      "/images/test-wiper-2.png",
+      "/images/test-bulb-1.png",
+      "/images/test-acc-1.png",
+      "/images/test-map-1.png"
+    ],
+    "video": { "url": "https://www.youtube.com/@TopWipers", "qr": "/images/test-qr.svg" }
+  },
+  "price": 3570,
+  "storeInfo": {
+    "title": "Как найти Bosch Aerotwin AR701S на полке",
+    "gallery": ["/images/test-article.png"],
+    "shelfData": {
+      "title": "Расположение Bosch Aerotwin AR701S на полке",
+      "img": "/images/test-shelf.png",
+      "planogram": { "aisle": "", "bay": "", "shelf": "", "position": "" }
+    }
+  }
+}

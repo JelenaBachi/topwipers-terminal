@@ -1,0 +1,8 @@
+{
+	"folders": [
+		{
+			"name": "SSH FS - tw_fit",
+			"uri": "ssh://tw_fit/srv/twfit/releases"
+		}
+	]
+}

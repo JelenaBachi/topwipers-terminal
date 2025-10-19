@@ -4,6 +4,7 @@ import { useAppStore } from '@/shared/store/useAppStore';
 import { fetchMods } from '@/entities/vehicle/mockApi';
 import type { Make, Model, Mod } from '@/entities/vehicle/types';
 import VehicleTile from '@/entities/vehicle/VehicleTile';
+import { paths } from '@/app/paths';
 import s from './ModPage.module.scss';
 
 export default function ModPage() {
@@ -15,11 +16,11 @@ export default function ModPage() {
 
   useEffect(() => {
     if (!make) {
-      navigate('/vehicle', { replace: true });
+      navigate(paths.vehicle(), { replace: true });
       return;
     }
     if (!model) {
-      navigate('/vehicle/models', { replace: true });
+      navigate(paths.vehicleMake(), { replace: true });
     }
   }, [make, model, navigate]);
 
@@ -44,7 +45,7 @@ export default function ModPage() {
                 fullWidth
                 onClick={() => {
                   setSelected({ mod: md });
-                  navigate('/products');
+                  navigate(paths.products());
                 }}
               />
             ))
